@@ -7,7 +7,7 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-    const int n = 4;
+    const int n = 7;
     int a[n];
 
     srand(time(NULL));
@@ -86,7 +86,7 @@ int main()
     cout << "Повторювальні елементи: ";
     for (int i = 0; i < n; i++) {
         int isUniq = true;
-        for (int j = 0; j < n; j++) {
+        for (int j = i + 1; j < n; j++) {
             isUniq = isUniq and (a[i] != a[j]);
         }
         if (!isUniq) cout << a[i] << " ";
