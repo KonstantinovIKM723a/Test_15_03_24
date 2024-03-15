@@ -7,7 +7,7 @@ int main()
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
-    const int n = 5;
+    const int n = 4;
     int a[n];
 
     srand(time(NULL));
@@ -137,7 +137,7 @@ int main()
     }
 
     //Виводимо транспонуваний масив на екран
-    cout << "Транспонуваний масив: " << endl;
+    cout << "Транспонуваний масив (створено з копії, далі в завданні використовується орігінал вище): " << endl;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             cout << g[i][j] << "\t";
@@ -145,7 +145,47 @@ int main()
         cout << endl;
     }
 
+    //Сума елементів нва головній і побічній діагоналях:
 
+    int sum_main = 0;
+    int sum_side = 0;
+
+    for (int i = 0; i < n; i++) {
+        sum_main += e[i][i];
+        sum_side += e[i][n - i - 1];
+
+    }
+    cout << "Сума елементів на головній діагоналі: " << sum_main << endl;
+    cout << "Сума елементів на побічній діагоналі: " << sum_side << endl;
+
+
+
+
+    //Всі елементи у двовимірному масиві, які потрапляють у заданий діапазон
+
+    int from;
+    int dest;
+
+    cout << "Перше значення диапаозону: ";
+    cin >> from;
+    cout << "Друге значення диапаозону: ";
+    cin >> dest;
+
+
+    cout << "Всі елементи у двовимірному масиві, які потрапляють у заданий діапазон: ";
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            
+            if (from < dest) {
+                if ((e[i][j] >= from) and (e[i][j] <= dest)) cout << e[i][j] << " ";
+            }
+            else {
+                if ((e[i][j] >= dest) and (e[i][j] <= from)) cout << e[i][j] << " ";
+            }
+        }
+    }
+    cout << endl;
+    
 
 
 
